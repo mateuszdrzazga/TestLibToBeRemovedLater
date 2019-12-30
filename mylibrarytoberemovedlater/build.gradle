@@ -25,6 +25,11 @@ android {
 
 }
 
+ext {
+    retrofitVersion = '2.6.1'
+    timberVersion = '4.7.1'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -33,4 +38,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    // Retrofit
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 }
