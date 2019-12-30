@@ -28,6 +28,7 @@ android {
 ext {
     retrofitVersion = '2.6.1'
     timberVersion = '4.7.1'
+    acuantVersion = '11.2.5'
 }
 
 dependencies {
@@ -46,4 +47,16 @@ dependencies {
 
     // Timber
     implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Acuant
+    implementation "com.acuant:acuantcommon:$acuantVersion"
+    implementation "com.acuant:acuantcamera:$acuantVersion"
+    implementation "com.acuant:acuantimagepreparation:$acuantVersion"
+    implementation "com.acuant:acuantdocumentprocessing:$acuantVersion"
+    implementation "com.acuant:acuantechipreader:$acuantVersion"
+    implementation "com.acuant:acuantfacematch:$acuantVersion"
+    implementation "com.acuant:acuanthgliveness:$acuantVersion"
+    implementation("com.acuant:acuantipliveness:$acuantVersion") {
+        transitive = true
+    }
 }
