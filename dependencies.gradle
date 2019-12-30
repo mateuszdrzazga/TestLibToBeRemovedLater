@@ -1,0 +1,36 @@
+ext.versions = [
+        minSdk         : 21,
+        compileSdk     : 29,
+        targetSdk      : 29,
+        buildTools     : "29.0.1",
+        retrofitVersion: '2.6.1',
+        acuantVersion  : '11.2.5',
+        timberVersion  : '4.7.1'
+]
+
+ext.deps = [
+        retrofit: [
+                core         : "com.squareup.retrofit2:retrofit:$versions.retrofitVersion",
+                rxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitVersion",
+                gson         : "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion",
+        ],
+
+        acuant  : [
+                common            : "com.acuant:acuantcommon:$versions.acuantVersion",
+                camera            : "com.acuant:acuantcamera:$versions.acuantVersion",
+                imagePreparation  : "com.acuant:acuantimagepreparation:$versions.acuantVersion",
+                documentProcessing: "com.acuant:acuantdocumentprocessing:$versions.acuantVersion",
+                techipreader      : "com.acuant:acuantechipreader:$versions.acuantVersion",
+                facematch         : "com.acuant:acuantfacematch:$versions.acuantVersion",
+                hgliveness        : "com.acuant:acuanthgliveness:$versions.acuantVersion",
+                ipliveness        : "com.acuant:acuantipliveness:$versions.acuantVersion"
+        ],
+
+        timber  : "com.jakewharton.timber:timber:$versions.timberVersion",
+
+        test    : [
+                junit        : 'junit:junit:4.12',
+                androidxJunit: 'androidx.test.ext:junit:1.1.1',
+                espresso     : 'androidx.test.espresso:espresso-core:3.2.0'
+        ]
+]

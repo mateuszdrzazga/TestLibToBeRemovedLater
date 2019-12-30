@@ -1,14 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply from: rootProject.file("dependencies.gradle")
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
 
@@ -25,38 +27,33 @@ android {
 
 }
 
-ext {
-    retrofitVersion = '2.6.1'
-    timberVersion = '4.7.1'
-    acuantVersion = '11.2.5'
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Retrofit
-    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    api "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    api deps.retrofit.core
+    api deps.retrofit.rxJavaAdapter
+    api deps.retrofit.gson
 
     // Timber
-    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation deps.timber
 
     // Acuant
-    implementation "com.acuant:acuantcommon:$acuantVersion"
-    implementation "com.acuant:acuantcamera:$acuantVersion"
-    implementation "com.acuant:acuantimagepreparation:$acuantVersion"
-    implementation "com.acuant:acuantdocumentprocessing:$acuantVersion"
-    implementation "com.acuant:acuantechipreader:$acuantVersion"
-    implementation "com.acuant:acuantfacematch:$acuantVersion"
-    implementation "com.acuant:acuanthgliveness:$acuantVersion"
-    implementation("com.acuant:acuantipliveness:$acuantVersion") {
+    implementation deps.acuant.common
+    implementation deps.acuant.camera
+    implementation deps.acuant.imagePreparation
+    implementation deps.acuant.documentProcessing
+    implementation deps.acuant.techipreader
+    implementation deps.acuant.facematch
+    implementation deps.acuant.hgliveness
+    implementation(deps.acuant.ipliveness) {
         transitive = true
     }
+
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.androidxJunit
+    androidTestImplementation deps.test.espresso
 }
